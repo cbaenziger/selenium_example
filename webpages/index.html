@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang='en'>
+<!--
+	NOTE: Usually any webpage would now-a-days be made with a JavaScript layout
+	framework and not crafted by hand. Since we are crafting by hand, record some
+	design principles followed to help explain convention used in designing the
+	website which we can use testing the website.
+	Design principles:
+	* Spaces in links and ID's will always be URL escaped (no underscore or hyphen)
+	* Each coffee will have:
+	  - An anchor tag with its lower-cased name with
+	    an ID attribute of its lower-cased name
+	* The image map roll-over will
+	  - Have alt text for all coffees of the form:
+  	    "A picture highlighting <title-case coffee name> coffee"
+	  - Have all images under a directory "bag dance"
+	  - All images under the bag dance directory will be of the form:
+	    <lower-case url coffee name with space>.png (i.e. "el valle.png")
+	  - The default image under the bag%20dance directory will be named default.png
+-->
+<head>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta name="robots" content="noindex">
+<title>Auspicious Test</title>
+
+<!-- CSS to support image map rollovers -->
+<style>
+.roast-selector-container {
+    position: relative;
+    display:inline-block;
+}
+.roast-selector-container img {
+    display:block;
+}
+.roast-selector-container .roast-selector {
+    left:0;top:0;right:0;bottom:0;
+    color:#546E7A00;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    transition-property: top, left, right, bottom, color;
+}
+.roast-selector-container .roast-selector.hover {
+    color:#546E7A80;
+}
+
+.roast-selector:after {
+    content: '';
+    position: absolute;
+    top: inherit;right: inherit;bottom: inherit;left: inherit;
+    background: currentColor;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    transition-property: top, left, right, bottom, background;
+    pointer-events: none;
+}
+</style>
+</head>
+
+<body>
+<center>
+<h1>Initial Quick Click</h1>
+<a href="_DSC4592.jpg"><img src="_DSC4592_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+
+<h1>Product Selector</h1>
+<i>Look at source code to see how this is implemented</i>
+<div class="roast-seletor-container"><img src=
+"bag%20dance/default.png" alt="Coffee Roast Line-Up" usemap=
+"#roast-map" id="roastView">
+<div class="map-selector"></div>
+</div>
+
+<!-- image map areas -->
+ <map name="roast-map" id="roast-selector">
+<area alt="A picture highlighting Antero coffee" title="" shape="rect" coords="104,158,220,400"
+onmouseover="updateimage('Antero')" onmouseleave="defaultimage()"
+href="#antero">
+<area alt="A picture highlighting Epauli coffee" title="" shape="rect" coords="220,155,345,400"
+onmouseover="updateimage('Epauli')" onmouseleave="defaultimage()"
+href="#epauli">
+<area alt="A picture highlighting Tabeguache coffee" title="" shape="rect" coords=
+"346,164,475,400" onmouseover="updateimage('Tabeguache')"
+onmouseleave="defaultimage()" href="#tabeguache">
+<area alt="A picture highlighting Tater Heap coffee" title="" shape="rect" coords=
+"476,175,585,400" onmouseover="updateimage('Tater Heap')"
+onmouseleave="defaultimage()" href="#tater%20heap">
+<area alt="A picture highlighting El Valle coffee" title="" shape="rect" coords="586,175,715,400"
+onmouseover="updateimage('El Valle')" onmouseleave="defaultimage()"
+href="#el%20valle">
+<area alt="A picture highlighting Blanca coffee" title="" shape="rect" coords="716,185,825,400"
+onmouseover="updateimage('Blanca')" onmouseleave="defaultimage()"
+href="#blanca">
+<area alt="A picture highlighting Eolus coffee" title="" shape="rect" coords="826,195,945,400"
+onmouseover="updateimage('Eolus')" onmouseleave="defaultimage()"
+href="#eolus">
+<area alt="A picture highlighting Liso coffee" title="" shape="rect" coords="946,210,1045,400"
+onmouseover="updateimage('Liso')" onmouseleave="defaultimage()"
+href="#liso"></map> <!-- cache image map rollover images -->
+<img src="bag%20dance/antero.png" width="0px" height="0px" style=
+"visibility: hidden;"> <img src="bag%20dance/epauli.png" width=
+"0px" height="0px" style="visibility: hidden;"> <img src=
+"bag%20dance/tabeguache.png" width="0px" height="0px" style=
+"visibility: hidden;"> <img src="bag%20dance/tater%20heap.png"
+width="0px" height="0px" style="visibility: hidden;"> <img src=
+"bag%20dance/el%20valle.png" width="0px" height="0px" style=
+"visibility: hidden;"> <img src="bag%20dance/blanca.png" width=
+"0px" height="0px" style="visibility: hidden;"> <img src=
+"bag%20dance/eolus.png" width="0px" height="0px" style=
+"visibility: hidden;"> <img src="bag%20dance/liso.png" width="0px"
+height="0px" style="visibility: hidden;"> 
+
+<!-- Java Script to update rollover images -->
+<script>
+function updateimage(x) {
+  switch (x) {
+    case 'Antero':
+      {
+        document.getElementById("roastView").src = "bag%20dance/antero.png";
+      };
+      break;
+    case 'Epauli':
+      {
+        document.getElementById("roastView").src = "bag%20dance/epauli.png";
+      };
+      break;
+    case 'Tabeguache':
+      {
+        document.getElementById("roastView").src = "bag%20dance/tabeguache.png";
+      };
+      break;
+    case 'Tater Heap':
+      {
+        document.getElementById("roastView").src = "bag%20dance/tater%20heap.png";
+      };
+      break;
+    case 'El Valle':
+      {
+        document.getElementById("roastView").src = "bag%20dance/el%20valle.png";
+      };
+      break;
+    case 'Blanca':
+      {
+        document.getElementById("roastView").src = "bag%20dance/blanca.png";
+      };
+      break;
+    case 'Eolus':
+      {
+        document.getElementById("roastView").src = "bag%20dance/eolus.png";
+      };
+      break;
+    case 'Liso':
+      {
+        document.getElementById("roastView").src = "bag%20dance/liso.png";
+      };
+      break;
+    default:
+      {
+        document.getElementById("roastView").src = "bag%20dance/default.png";
+      };
+      break;
+  }
+}
+
+// reset the image when the user isn't hovering.
+function defaultimage() {
+  document.getElementById("roastView").src = "bag%20dance/default.png";
+}
+</script>
+
+<!-- Webpage HTML below -->
+<h1>Lightbox Bags</h1>
+<a name="epauli" id="epauli"></a>
+<h2>Epauli</h2>
+<a href="_DSC5458.jpg"><img src="_DSC5458_small.jpg" hspace="10px"
+vspace="10px" height="765px"></a> <a href=
+"_DSC5466_01.jpg"><img src="_DSC5466_01_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+<a name="tabeguache" id="tabeguache"></a>
+
+<h2>Tabeguache</h2>
+<a href="_DSC5459.jpg"><img src="_DSC5459_small.jpg" hspace="10px"
+vspace="10px" height="765px"></a> <a href=
+"_DSC5467_01.jpg"><img src="_DSC5467_01_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+<a name="tater%20heap" id="tater%20heap"></a>
+
+<h2>Tater Heap</h2>
+<a href="_DSC5460.jpg"><img src="_DSC5460_small.jpg" hspace="10px"
+vspace="10px" height="765px"></a> <a href=
+"_DSC5469_01.jpg"><img src="_DSC5469_01_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+<a name="el%20valle" id="el%20valle"></a>
+
+<h2>El Valle</h2>
+<a href="_DSC5461.jpg"><img src="_DSC5461_small.jpg" hspace="10px"
+vspace="10px" height="765px"></a> <a href=
+"_DSC5471_01.jpg"><img src="_DSC5471_01_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+<a name="blanca" id="blanca"></a>
+
+<h2>Blanca</h2>
+<a href="_DSC5462.jpg"><img src="_DSC5462_small.jpg" hspace="10px"
+vspace="10px" height="765px"></a> <a href=
+"_DSC5472_01.jpg"><img src="_DSC5472_01_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+<a name="eolus" id="eolus"></a>
+
+<h2>Eolus</h2>
+<a href="_DSC5464.jpg"><img src="_DSC5464_small.jpg" hspace="10px"
+vspace="10px" height="765px"></a> <a href=
+"_DSC5474_01.jpg"><img src="_DSC5474_01_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+<a name="liso" id="liso"></a>
+
+<h2>Liso</h2>
+<a href="_DSC5456.jpg"><img src="_DSC5456_small.jpg" hspace="10px"
+vspace="10px" height="765px"></a> <a href=
+"_DSC5475_01.jpg"><img src="_DSC5475_01_small.jpg" hspace="10px"
+vspace="10px"></a><br>
+<a name="antero" id="antero"></a>
+
+<h2>Antero</h2>
+<a href="_DSC5465_01.jpg"><img src="_DSC5465_01_small.jpg" hspace=
+"10px" vspace="10px"></a><br></center>
+</body>
+</html>
